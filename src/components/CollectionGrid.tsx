@@ -14,7 +14,7 @@ export default function CollectionGrid() {
         <h2 className="section-title">Collections sélectionnées</h2>
         <div className="grid">
           {collections.map((c, i) => (
-            <Link href={`/products?category=${c.slug}`} key={i} className="collection-card">
+            <Link href={`/products?category=${c.slug}`} key={i} className="collection-card animate-up" style={{transitionDelay: `${i * 0.1}s`}}>
               <div className="img-wrap">
                 <img src={c.image} alt={c.name} />
                 <div className="overlay">

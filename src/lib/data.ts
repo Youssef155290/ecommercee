@@ -12,7 +12,7 @@ export const products = [
     name: "Ensemble en Lin",
     price: "7.800 DA",
     category: "Ensembles",
-    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800",
     status: "Disponible"
   },
   {
@@ -20,7 +20,7 @@ export const products = [
     name: "Lace Top",
     price: "3.200 DA",
     category: "Hauts",
-    image: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&q=80&w=800",
     status: "Disponible"
   },
   {

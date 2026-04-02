@@ -56,6 +56,27 @@ button {
   transition: all 0.25s var(--transition);
 }
 
+/* Animations */
+.animate-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+}
+
+.animate-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade {
+  opacity: 0;
+  transition: opacity 1s var(--transition);
+}
+
+.animate-fade.visible {
+  opacity: 1;
+}
+
 .container {
   max-width: var(--container-max);
   margin: 0 auto;

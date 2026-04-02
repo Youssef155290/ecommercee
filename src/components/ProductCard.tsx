@@ -6,7 +6,7 @@ export default function ProductCard({ product }: { product: any }) {
   const { addToCart } = useCart();
 
   return (
-    <div className="product-card">
+    <div className="product-card animate-up">
       <Link href={`/product/${product.id}`}>
         <div className="img-wrap">
           <img src={product.image} alt={product.name} />

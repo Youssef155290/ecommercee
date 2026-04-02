@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 import { CartProvider } from "@/context/CartContext";
+import ScrollAnimation from "@/components/ScrollAnimation";
 
 export const metadata: Metadata = {
   title: "Sarrluxury - Your ultimate style destination",
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="fr" suppressHydrationWarning>
       <body suppressHydrationWarning>
         <CartProvider>
+          <ScrollAnimation />
           <Header />
           {children}
           <Footer />
