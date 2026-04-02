@@ -1,54 +1,47 @@
-'use client';
-
-const features = [
-  {
-    title: "Paiement à la livraison",
-    desc: "Payez en toute sécurité à l'arrivée de votre commande.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2v20M2 12h20" />
-        <circle cx="12" cy="12" r="10" />
-      </svg>
-    )
-  },
-  {
-    title: "Livraison express",
-    desc: "Livraison rapide à travers les 69 wilayas.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M10 17l5-5-5-5" />
-        <path d="M13.8 12H3" />
-        <rect x="13.8" y="5" width="7.2" height="14" rx="2" />
-      </svg>
-    )
-  },
-  {
-    title: "Service 24/7",
-    desc: "Nous sommes disponibles pour vous aider à tout moment.",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    )
-  }
-];
-
 export default function FeatureBar() {
   return (
-    <section className="feature-bar">
+    <section className="feature-bar fade-in">
       <div className="container feature-grid">
-        {features.map((f, i) => (
-          <div key={i} className="feature-item">
-            <div className="icon-wrap">{f.icon}</div>
-            <div className="text-wrap">
-              <h3>{f.title}</h3>
-              <p>{f.desc}</p>
-            </div>
+        <div className="feature-item animate-up">
+          <div className="icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="1" y="3" width="15" height="13" />
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </svg>
           </div>
-        ))}
-      </div>
+          <div className="text-wrap">
+            <h3>Worldwide Express</h3>
+            <p>Complimentary shipping on orders over 10.000 DA</p>
+          </div>
+        </div>
 
+        <div className="feature-item animate-up" style={{transitionDelay: '0.1s'}}>
+          <div className="icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <div className="text-wrap">
+            <h3>Secure Transactions</h3>
+            <p>Premium encryption for your peace of mind</p>
+          </div>
+        </div>
+
+        <div className="feature-item animate-up" style={{transitionDelay: '0.2s'}}>
+          <div className="icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <div className="text-wrap">
+            <h3>Curated Craft</h3>
+            <p>Designed in Algiers, tailored for excellence</p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

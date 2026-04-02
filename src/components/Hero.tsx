@@ -4,28 +4,33 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <section className="hero">
+      <div className="hero-bg-overlay">
+        <img 
+          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=2000" 
+          alt="Luxury Fashion" 
+          className="hero-image"
+        />
+      </div>
       <div className="hero-content container">
-        <div className="text-reveal">
-          <span className="subtitle animate-up">BIENVENUE CHEZ SARRLUXURY</span>
+        <div className="hero-text-box">
+          <span className="subtitle animate-up">EST. 2024 — ALGERIA</span>
           <h1 className="animate-up">
-            Your ultimate <br />
-            <span className="luxury-text">style destination</span>
+            Elevate Your <br />
+            <span className="luxury-text">Presence</span>
           </h1>
           <p className="animate-up">
-            From viral sets to iconic abayas. <br />
-            Get the look you’ve been scrolling for.
+            Curated collections for the modern woman. Discover the intersection of tradition and avant-garde style.
           </p>
           <div className="cta-group animate-up">
             <Link href="/products" className="btn-primary">
-              GET YOURS NOW
+              SHOP COLLECTION
             </Link>
-            <Link href="/products" className="btn-outline hero-btn-outline">
-              BROWSE COLLECTIONS
+            <Link href="/products" className="btn-outline">
+              VIEW LOOKBOOK
             </Link>
           </div>
         </div>
       </div>
-
     </section>
   );
 }

@@ -7,8 +7,8 @@ import { CartProvider } from "@/context/CartContext";
 import ScrollAnimation from "@/components/ScrollAnimation";
 
 export const metadata: Metadata = {
-  title: "Sarrluxury - Your ultimate style destination",
-  description: "From viral sets to iconic abayas. Designed in Algeria, made for the world.",
+  title: "SARRLUXURY — The Definitive Style Destination",
+  description: "Curated collections from Algiers. Viral sets, iconic abayas, and contemporary silhouettes designed for the global woman.",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
         <CartProvider>
           <ScrollAnimation />

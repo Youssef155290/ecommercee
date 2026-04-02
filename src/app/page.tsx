@@ -29,10 +29,11 @@ export default function Home() {
       {/* Mid Banner */}
       <section className="mid-banner">
         <div className="container banner-inner">
-          <div className="banner-content">
-            <h2 className="luxury-text">Join our community of style icons</h2>
-            <p>Designed in Algeria, made for the world.</p>
-            <button className="btn-primary" style={{marginTop: '20px', background: '#fff', color: '#000', border: 'none'}}>DÉCOUVRIR PLUS</button>
+          <div className="banner-content animate-up">
+            <span className="subtitle">THE PHILOSOPHY</span>
+            <h2 className="luxury-text">Join the world of Sarrluxury</h2>
+            <p>Where traditional craft meets contemporary elegance. Designed for the bold, the graceful, and the iconic.</p>
+            <button className="btn-primary" style={{marginTop: '40px', background: '#fff', color: '#000', border: 'none'}}>EXPLORE MORE</button>
           </div>
         </div>
       </section>

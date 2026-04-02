@@ -5,62 +5,57 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <Link href="/" className="logo-text" style={{fontSize: '1.2rem'}}>SARRLUXURY</Link>
+          <Link href="/" className="logo-text">SARRLUXURY</Link>
           <p className="brand-desc">
-            Your ultimate style destination. From viral sets to iconic abayas. 
-            Designed in Algeria, made for the world.
+            Curated elegance for the modern woman. Designed in Algeria, made for the world. 
+            Est. 2024.
           </p>
           <div className="social-links">
-            {/* Social Icons Placeholder */}
-            <span className="social-icon">IG</span>
-            <span className="social-icon">FB</span>
-            <span className="social-icon">TT</span>
+            <Link href="#" className="social-link">Instagram</Link>
+            <Link href="#" className="social-link">TikTok</Link>
+            <Link href="#" className="social-link">Pinterest</Link>
           </div>
         </div>
 
         <div className="footer-links-group">
-          <h3>Liens rapides</h3>
+          <h3>Collection</h3>
           <ul>
-            <li><Link href="/">Accueil</Link></li>
-            <li><Link href="/about">À propos</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
-            <li><Link href="/faq">FAQ</Link></li>
-            <li><Link href="/conditions">Conditions générales</Link></li>
+            <li><Link href="/products">View All</Link></li>
+            <li><Link href="/products?category=ensembles">Ensembles</Link></li>
+            <li><Link href="/products?category=abayas">Abayas</Link></li>
+            <li><Link href="/products?category=hauts">Hauts</Link></li>
           </ul>
         </div>
 
         <div className="footer-links-group">
-          <h3>Boutique</h3>
+          <h3>Customer Core</h3>
           <ul>
-            <li><Link href="/products?type=all">Tous les produits</Link></li>
-            <li><Link href="/products?type=new">Nouveautés</Link></li>
-            <li><Link href="/products?sort=popular">Tendances</Link></li>
-            <li><Link href="/products?max_price=3000">Petits prix</Link></li>
-            <li><Link href="/cart">Panier</Link></li>
+            <li><Link href="/shipping">Shipping Info</Link></li>
+            <li><Link href="/returns">Returns</Link></li>
+            <li><Link href="/faq">FAQ</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>
 
         <div className="footer-newsletter">
-          <h3>Communauté</h3>
-          <p>Rejoignez-nous pour nos dernières collections.</p>
+          <h3>Stay Inspired</h3>
+          <p>Join our inner circle for exclusive previews and editorial content.</p>
           <div className="newsletter-form">
-            <input type="email" placeholder="Votre email" />
-            <button>REJOINDRE</button>
+            <input type="email" placeholder="Your Email Address" />
+            <button>SUBSCRIBE</button>
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
         <div className="container bottom-inner">
-          <p>© 2026 Sarrluxury. Tous droits réservés.</p>
-          <div className="payment-methods">
-             {/* Payment Icons */}
-             <span>COD</span>
-             <span>STRIPE</span>
+          <p>© 2026 SARRLUXURY. ALL RIGHTS RESERVED.</p>
+          <div className="legal-links">
+             <Link href="/privacy">Privacy Policy</Link>
+             <Link href="/terms">Terms of Service</Link>
           </div>
         </div>
       </div>
-
     </footer>
   );
 }

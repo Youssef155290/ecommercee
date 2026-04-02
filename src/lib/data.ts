@@ -1,40 +1,40 @@
 export const products = [
   {
     id: 1,
-    name: "Chemise rayée en lin",
-    price: "4.500 DA",
-    category: "Hauts",
-    image: "https://images.unsplash.com/photo-1594932224010-756707767eaa?auto=format&fit=crop&q=80&w=800",
-    status: "Disponible"
+    name: "Aurore Silk Ensemble",
+    price: "14.500 DA",
+    category: "Ensembles",
+    image: "https://images.unsplash.com/photo-1539109132381-315125a27ad9?auto=format&fit=crop&q=80&w=800",
+    status: "New Collection"
   },
   {
     id: 2,
-    name: "Ensemble en Lin",
-    price: "7.800 DA",
-    category: "Ensembles",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800",
-    status: "Disponible"
+    name: "Midnight Velvet Abaya",
+    price: "18.800 DA",
+    category: "Abayas",
+    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800",
+    status: "Limited Edition"
   },
   {
     id: 3,
-    name: "Lace Top",
-    price: "3.200 DA",
+    name: "Classic Linen Shirt",
+    price: "8.200 DA",
     category: "Hauts",
-    image: "https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&q=80&w=800",
-    status: "Disponible"
+    image: "https://images.unsplash.com/photo-1594932224010-756707767eaa?auto=format&fit=crop&q=80&w=800",
+    status: "Available"
   },
   {
     id: 4,
-    name: "Robe Iconic Velvet",
+    name: "Iconic Satin Set",
     price: "12.000 DA",
-    category: "Robe",
-    image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=800",
-    status: "Disponible"
+    category: "Ensembles",
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800",
+    status: "Best Seller"
   }
 ];
 
 export const collections = [
-  { name: "Ensembles", slug: "ensembles", image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800" },
-  { name: "Hauts", slug: "hauts", image: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&q=80&w=800" },
-  { name: "Robe", slug: "robe", image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=800" }
+  { name: "The Silk Road", slug: "silk", image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c33?auto=format&fit=crop&q=80&w=800" },
+  { name: "Modern Heritage", slug: "heritage", image: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&q=80&w=800" },
+  { name: "Evening Grace", slug: "grace", image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=800" }
 ];
