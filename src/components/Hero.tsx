@@ -6,8 +6,8 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-bg-overlay">
         <img 
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=2000" 
-          alt="Luxury Fashion" 
+          src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=2000" 
+          alt="SARRLUXURY Seasonal Campaign" 
           className="hero-image"
         />
       </div>

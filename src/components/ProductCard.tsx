@@ -7,7 +7,7 @@ export default function ProductCard({ product }: { product: any }) {
   return (
     <div className="product-card animate-up">
       <div className="img-wrap">
-        <img src={product.image} alt={product.name} loading="lazy" />
+        <img src={product.image} alt={product.name} />
         <div className="product-status-tag">{product.status}</div>
         <div className="quick-add">
           <button 
