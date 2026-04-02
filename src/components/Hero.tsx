@@ -19,7 +19,7 @@ export default function Hero() {
             <Link href="/products" className="btn-primary">
               GET YOURS NOW
             </Link>
-            <Link href="/collections" className="btn-outline" style={{marginLeft: '1rem', background: 'rgba(255,255,255,0.8)'}}>
+            <Link href="/products" className="btn-outline hero-btn-outline">
               BROWSE COLLECTIONS
             </Link>
           </div>
