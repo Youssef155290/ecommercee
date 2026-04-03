@@ -1,4 +1,21 @@
-export const products = [
+export interface Product {
+  id: number;
+  name: string;
+  price: string;
+  category: string;
+  image: string;
+  status?: string;
+}
+
+export interface Collection {
+  id: number;
+  name: string;
+  slug: string;
+  image: string;
+  description: string;
+}
+
+export const products: Product[] = [
   {
     id: 1,
     name: "Aurore Silk Ensemble",
@@ -65,7 +82,7 @@ export const products = [
   }
 ];
 
-export const collections = [
+export const collections: Collection[] = [
   { id: 1, name: "The Silk Road", slug: "silk", image: "https://images.unsplash.com/photo-1533560759049-74d6c41b83a0?auto=format&fit=crop&q=80&w=1200&v=1001", description: "Oriental elegance meets modern luxury." },
   { id: 2, name: "Modern Heritage", slug: "heritage", image: "https://images.unsplash.com/photo-1583301015696-26759c808801?auto=format&fit=crop&q=80&w=1200&v=1001", description: "Timeless silhouettes for the bold woman." },
   { id: 3, name: "Evening Grace", slug: "grace", image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=1200&v=1001", description: "Sophistication at its finest." }

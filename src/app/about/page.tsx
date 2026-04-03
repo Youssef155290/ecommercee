@@ -3,12 +3,19 @@
 import { motion } from "framer-motion";
 import { Sparkles, Heart, Zap, ShieldCheck } from "lucide-react";
 
+interface AboutPoint {
+  title: string;
+  icon: React.ReactNode;
+  desc: string;
+}
+
 export default function AboutPage() {
-  const points = [
+  const points: AboutPoint[] = [
     { title: "Design Intemporel", icon: <Sparkles />, desc: "Nos silhouettes fusionnent héritage et modernité pour un allure unique." },
     { title: "Savoir-Faire Artisanal", icon: <ShieldCheck />, desc: "Chaque pièce est confectionnée avec des tissus d'exception et une attention méticuleuse." },
     { title: "Élégance Contemporaine", icon: <Zap />, desc: "Une vision audacieuse conçue pour la femme globale qui ose l'exceptionnel." }
   ];
+
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen text-white pt-40 pb-20 px-6 lg:px-12 overflow-hidden">

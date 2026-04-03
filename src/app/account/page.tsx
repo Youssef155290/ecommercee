@@ -4,18 +4,31 @@ import { motion } from "framer-motion";
 import { User, Package, Settings, LogOut, ChevronRight, Heart } from "lucide-react";
 import Link from "next/link";
 
+interface UserProfile {
+  name: string;
+  email: string;
+  memberSince: string;
+}
+
+interface AccountSection {
+  title: string;
+  icon: React.ReactNode;
+  href: string;
+}
+
 export default function AccountPage() {
-  const user = {
+  const user: UserProfile = {
     name: "Client Privilégié",
     email: "client@sarrluxury.com",
     memberSince: "Oct 2025"
   };
 
-  const sections = [
+  const sections: AccountSection[] = [
     { title: "Commandes Récentes", icon: <Package size={20} />, href: "#" },
     { title: "Liste d'Envies", icon: <Heart size={20} />, href: "#" },
     { title: "Paramètres", icon: <Settings size={20} />, href: "#" }
   ];
+
 
   return (
     <div className="min-height-screen bg-[#0a0a0a] pt-32 pb-20 px-6 lg:px-12">

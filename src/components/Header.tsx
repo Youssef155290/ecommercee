@@ -6,10 +6,15 @@ import { useCart } from "@/context/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingBag, User, Search, Menu, X, ArrowRight } from "lucide-react";
 
+interface NavLink {
+  name: string;
+  href: string;
+}
+
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const { cartCount, setIsCartOpen } = useCart();
 
   useEffect(() => {
@@ -20,12 +25,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: "Collections", href: "/products" },
     { name: "Ensembles", href: "/products?category=ensembles" },
     { name: "Abayas", href: "/products?category=abayas" },
     { name: "L'Univers", href: "/about" },
   ];
+
 
   return (
     <header className={`fixed top-0 left-0 w-full z-[2002] transition-all duration-700 ${
