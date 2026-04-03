@@ -14,15 +14,19 @@ type CartContextType = {
   cart: CartItem[];
   addToCart: (product: any) => void;
   removeFromCart: (id: number) => void;
+  updateQuantity: (id: number, delta: number) => void;
   clearCart: () => void;
   cartCount: number;
   cartTotal: string;
+  isCartOpen: boolean;
+  setIsCartOpen: (open: boolean) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Load cart from localStorage on init
   useEffect(() => {
@@ -47,10 +51,23 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }
       return [...prevCart, { ...product, quantity: 1 }];
     });
+    setIsCartOpen(true); // Open cart when item added
   };
 
   const removeFromCart = (id: number) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
+
+  const updateQuantity = (id: number, delta: number) => {
+    setCart((prevCart) =>
+      prevCart.map((item) => {
+        if (item.id === id) {
+          const newQuantity = Math.max(1, item.quantity + delta);
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      })
+    );
   };
 
   const clearCart = () => setCart([]);
@@ -63,7 +80,17 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, 0).toLocaleString() + ' DA';
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, cartCount, cartTotal }}>
+    <CartContext.Provider value={{ 
+      cart, 
+      addToCart, 
+      removeFromCart, 
+      updateQuantity,
+      clearCart, 
+      cartCount, 
+      cartTotal,
+      isCartOpen,
+      setIsCartOpen
+    }}>
       {children}
     </CartContext.Provider>
   );
@@ -76,3 +103,4 @@ export function useCart() {
   }
   return context;
 }
+

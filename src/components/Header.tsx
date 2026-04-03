@@ -1,66 +1,139 @@
-'use client';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { useCart } from '@/context/CartContext';
+"use client";
+
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { useCart } from "@/context/CartContext";
+import { motion, AnimatePresence } from "framer-motion";
+import { ShoppingBag, User, Search, Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { cartCount } = useCart();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { cartCount, setIsCartOpen } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: "Collections", href: "/products" },
+    { name: "Ensembles", href: "/products?category=ensembles" },
+    { name: "Abayas", href: "/products?category=abayas" },
+    { name: "L'Univers", href: "/about" },
+  ];
+
   return (
-    <header className={`header-sticky ${isScrolled ? 'header-scrolled' : ''}`}>
-      <div className="top-banner">
-        <p>LIVRAISON GRATUITE SUR TOUTES LES COMMANDES DE PLUS DE 10.000 DA</p>
-      </div>
+    <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-700 ${
+      isScrolled ? "py-4 bg-black/80 backdrop-blur-xl border-b border-white/5" : "py-8 bg-transparent"
+    }`}>
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex items-center justify-between">
+          
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="lg:hidden text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+          </button>
 
-      <nav className="container">
-        <div className="nav-grid">
-          <div className="logo-section">
-            <Link href="/" className="logo-text">
-              SARRLUXURY
-            </Link>
-          </div>
+          {/* Desktop Nav - Left */}
+          <nav className="hidden lg:flex items-center gap-10">
+            {navLinks.slice(0, 2).map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                className="text-[10px] font-bold tracking-[0.3em] uppercase text-white hover:text-accent transition-colors duration-500"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
 
-          <ul className="nav-links">
-            <li><Link href="/">Accueil</Link></li>
-            <li><Link href="/products">Collections</Link></li>
-            <li><Link href="/products?category=ensembles">Ensembles</Link></li>
-            <li><Link href="/products?category=abayas">Abayas</Link></li>
-            <li><Link href="#contact">Contact</Link></li>
-          </ul>
+          {/* Logo - Center */}
+          <Link 
+            href="/" 
+            className={`text-xl lg:text-3xl font-light tracking-[0.6em] uppercase text-white transition-all duration-700 ${
+              isScrolled ? "scale-90" : "scale-100"
+            }`}
+          >
+            SARRLUXURY
+          </Link>
 
-          <div className="nav-actions">
-            <button className="icon-btn" aria-label="Rechercher">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.35-4.35" />
-              </svg>
-            </button>
-            <Link href="/account" className="icon-btn" aria-label="Compte">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </Link>
-            <Link href="/cart" className="cart-btn" aria-label="Panier">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4H6z" />
-                <path d="M3 6h18" />
-                <path d="M16 10a4 4 0 0 1-8 0" />
-              </svg>
-              <span className="cart-count">{cartCount}</span>
-            </Link>
+          {/* Desktop Nav - Right */}
+          <div className="flex items-center gap-6 lg:gap-10">
+            <nav className="hidden lg:flex items-center gap-10">
+              {navLinks.slice(2).map((link) => (
+                <Link 
+                  key={link.name} 
+                  href={link.href}
+                  className="text-[10px] font-bold tracking-[0.3em] uppercase text-white hover:text-accent transition-colors duration-500"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-4 lg:gap-6">
+              <button className="text-white hover:text-accent transition-colors duration-500">
+                <Search size={18} strokeWidth={1.5} />
+              </button>
+              <Link href="/account" className="text-white hover:text-accent transition-colors duration-500">
+                <User size={18} strokeWidth={1.5} />
+              </Link>
+              <button 
+                onClick={() => setIsCartOpen(true)} 
+                className="relative group flex items-center transition-all duration-300 transform active:scale-95"
+              >
+                <div className="relative">
+                  <ShoppingBag size={20} strokeWidth={1} className="text-white group-hover:text-accent transition-colors duration-500" />
+                  <AnimatePresence>
+                    {cartCount > 0 && (
+                      <motion.span 
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        className="absolute -top-1 -right-2 bg-accent text-black text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-lg"
+                      >
+                        {cartCount}
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
-      </nav>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "-100%" }}
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 top-[header-height] bg-black z-[999] lg:hidden flex flex-col p-12 pt-24"
+          >
+            {navLinks.map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-3xl font-light tracking-widest uppercase text-white mb-8 hover:text-accent transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
+

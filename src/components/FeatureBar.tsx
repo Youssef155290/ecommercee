@@ -1,45 +1,54 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Truck, ShieldCheck, Clock, Award } from "lucide-react";
+
 export default function FeatureBar() {
+  const features = [
+    {
+      icon: <Truck size={24} strokeWidth={1} />,
+      title: "Worldwide Express",
+      desc: "L'excellence livrée partout."
+    },
+    {
+      icon: <ShieldCheck size={24} strokeWidth={1} />,
+      title: "Transactions",
+      desc: "Confidentialité & sécurité totale."
+    },
+    {
+      icon: <Award size={24} strokeWidth={1} />,
+      title: "Haute Couture",
+      desc: "Savoir-faire traditionnel algérien."
+    },
+    {
+      icon: <Clock size={24} strokeWidth={1} />,
+      title: "Excellence",
+      desc: "Un service client dévoué 24/7."
+    }
+  ];
+
   return (
-    <section className="feature-bar fade-in">
-      <div className="container feature-grid">
-        <div className="feature-item animate-up">
-          <div className="icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="1" y="3" width="15" height="13" />
-              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-              <circle cx="5.5" cy="18.5" r="2.5" />
-              <circle cx="18.5" cy="18.5" r="2.5" />
-            </svg>
-          </div>
-          <div className="text-wrap">
-            <h3>Worldwide Express</h3>
-            <p>Complimentary shipping on orders over 10.000 DA</p>
-          </div>
-        </div>
-
-        <div className="feature-item animate-up" style={{transitionDelay: '0.1s'}}>
-          <div className="icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-          </div>
-          <div className="text-wrap">
-            <h3>Secure Transactions</h3>
-            <p>Premium encryption for your peace of mind</p>
-          </div>
-        </div>
-
-        <div className="feature-item animate-up" style={{transitionDelay: '0.2s'}}>
-          <div className="icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-          </div>
-          <div className="text-wrap">
-            <h3>Curated Craft</h3>
-            <p>Designed in Algiers, tailored for excellence</p>
-          </div>
+    <section className="py-24 bg-white/10 border-y border-white/5 relative overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {features.map((f, i) => (
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.8 }}
+              key={i} 
+              className="flex items-start gap-5 group"
+            >
+              <div className="w-12 h-12 rounded-full bg-accent/5 flex items-center justify-center text-accent shrink-0 group-hover:bg-accent group-hover:text-black transition-all duration-500">
+                {f.icon}
+              </div>
+              <div>
+                <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase text-white mb-1">{f.title}</h3>
+                <p className="text-xs text-white/40 font-light tracking-wide">{f.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
