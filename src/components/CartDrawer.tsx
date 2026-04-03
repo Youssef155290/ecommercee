@@ -119,9 +119,14 @@ export default function CartDrawer() {
                 </div>
                 <p className="text-[9px] text-white/30 tracking-wider text-center">Taxes et frais de livraison calculés à la caisse.</p>
                 <div className="grid grid-cols-1 gap-4">
-                  <Link href="/checkout" className="btn-primary w-full py-5 text-[10px] bg-accent text-white hover:bg-white hover:text-black">
+                  <Link 
+                    href="/checkout" 
+                    onClick={() => setIsCartOpen(false)}
+                    className="btn-primary w-full py-5 text-[10px] bg-accent text-white hover:bg-white hover:text-black"
+                  >
                     PASSER À LA CAISSE
                   </Link>
+
                   <button 
                     onClick={() => setIsCartOpen(false)}
                     className="text-[9px] font-bold tracking-[0.4em] uppercase text-white/40 hover:text-white transition-colors py-2"
