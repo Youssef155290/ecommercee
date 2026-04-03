@@ -29,10 +29,11 @@ export default function AboutPage() {
             className="w-full lg:w-1/2 aspect-[3/4] relative overflow-hidden group"
           >
             <img 
-              src="https://images.unsplash.com/photo-1594235213606-ba7d5600f7ef?auto=format&fit=crop&q=80&w=1200" 
+              src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=1200&v=1002" 
               className="w-full h-full object-cover filter grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" 
               alt="L'Univers Sarrluxury"
             />
+
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
           </motion.div>
 
